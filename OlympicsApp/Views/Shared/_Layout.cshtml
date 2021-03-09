@@ -16,13 +16,12 @@
         <header class="text-center">
             <h1 class="bg-primary mt-3 p-3 text-white">Olympic Games Countries List</h1>
 
-            @* shows any messages in TempData *@
             @if (TempData["message"] != null)
             {
                 <h4 class="bg-success p-2">@TempData["message"]</h4>
             }
 
-            @* shows link to favorites unless favorites is already active *@
+            
             @if (!ViewContext.View.Path.Contains("favorites"))
             {
                 var session = new CountrySession(Context.Session);

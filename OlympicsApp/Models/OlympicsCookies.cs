@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace OlympicsApp.Models
 {
-	public class OlympicCookies
+	public class OlympicsCookies
 	{
 		private const string MyCountries = "mycountries";
 		private const string Delimiter = "-";
@@ -14,11 +14,11 @@ namespace OlympicsApp.Models
 		private IRequestCookieCollection requestCookies { get; set; }
 		private IResponseCookies responseCookies { get; set; }
 
-		public OlympicCookies(IRequestCookieCollection cookies)
+		public OlympicsCookies(IRequestCookieCollection cookies)
 		{
 			requestCookies = cookies;
 		}
-		public OlympicCookies(IResponseCookies cookies)
+		public OlympicsCookies(IResponseCookies cookies)
 		{
 			responseCookies = cookies;
 		}
@@ -36,7 +36,7 @@ namespace OlympicsApp.Models
 			string cookie = requestCookies[MyCountries];
 			if (string.IsNullOrEmpty(cookie))
 			{
-				return new string[] { }; //empty string array
+				return new string[] { }; 
 			}
 			else
 			{
