@@ -71,7 +71,7 @@ namespace OlympicsApp.Controllers
             countries.Add(model.Country);
             session.SetMyCountries(countries);
 
-            TempData["message"] = $"(model.Country.Name) added to your favorites";  
+            TempData["message"] = $"{model.Country.Name} added to your favorites";  
 
             return RedirectToAction("Index",    
                 new

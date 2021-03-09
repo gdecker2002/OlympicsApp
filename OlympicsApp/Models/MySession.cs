@@ -14,10 +14,8 @@ namespace OlympicsApp.Models
         {
             session = sess;
         }
-
         public List<Country> GetCountries() =>
             session.GetObject<List<Country>>(CountriesKey) ?? new List<Country>();
-
         public void SetCountries(List<Country> countries) =>
             session.SetObject(CountriesKey, countries);
     }
