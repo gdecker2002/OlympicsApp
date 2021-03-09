@@ -15,6 +15,26 @@
     <div class="container">
         <header class="text-center">
             <h1 class="bg-primary mt-3 p-3 text-white">Olympic Games Countries List</h1>
+
+            @* shows any messages in TempData *@
+            @if (TempData["message"] != null)
+            {
+                <h4 class="bg-success p-2">@TempData["message"]</h4>
+            }
+
+            @* shows link to favorites unless favorites is already active *@
+            @if (!ViewContext.View.Path.Contains("favorites"))
+            {
+                var session = new CountrySession(Context.Session);
+                <h5 class="bg-info p-2">
+                    <a asp-controller="Favorites"
+                       class="text-white">My Favorite Countries</a>
+
+                    <span class="badge badge-light">
+                        @(session.GetMyCountryCount())
+                    </span> 
+                </h5>
+            }
         </header>
         <main>
             @RenderBody()
