@@ -31,7 +31,12 @@ namespace OlympicsApp.Controllers
             if (activeSport != "all")
                 query = query.Where(t => t.Sport.SportID.ToLower() == activeSport.ToLower());
             model.Countries = query.ToList();
+
+
+            model.Games = context.Games.ToList();
+            model.Sports = context.Sports.ToList();      
             return View(model);
+
         }
 
         [HttpPost]
